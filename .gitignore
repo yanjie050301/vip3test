@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 
-text1.py
+
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -127,3 +127,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+Would skip repository vip3test/
+test2.py
