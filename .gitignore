@@ -128,4 +128,3 @@ dmypy.json
 .pyre/
 
 Would skip repository vip3test/
-test2.py
