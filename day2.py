@@ -168,36 +168,57 @@
 # a = Student('001')
 # a.study('it')
 # 继承
-class Animal():
-    def __init__(self,color):
-        self.color = color
+# class Animal():
+#     def __init__(self,color):
+#         self.color = color
+#     def eat(self):
+#         print('chi')
+#     def drink(self):
+#         print('he',self.color)
+# # 第一步：继承谁，类中的括号就写谁
+# # 第二步：子类就具有父类的所有属性和方法，但是父类不能具备子类的属性和方法
+# class Gaofei(Animal):
+#     def __init__(self,color,size):  #继承父类的属性写法
+#         Animal.__init__(self,color)  #继承父类的属性写法，父类属性的初始化写法
+#         self.size = size
+# #第三步：如果父类中没有子类需要的方法，可以在子类中自行定义
+#     def bark(self):
+#         print('汪汪叫',self.size)
+# class Tom(Animal):
+#     def catch(self):
+#         print('抓老鼠')
+# s = Gaofei('color','size')
+# s.drink()
+# s.bark()
+# 练习：
+# 定义一个Teacher类，继承Person类，拥有自身的属性工号：gh，自身的方法：teach教课（课程）；
+# 1、实现gh为xx的老师，教xx课
+# 2、实现gh为xx老师，在xx上班，一月工资xx
+# 3、名字是xx，工号为xx的老师，吃饭
+class Person():
+    def work(self,work,salary):
+        print('在',work,'上班，','一月工资',salary)
+    def name(self,name):
+        print('名字是',name,'，',end='')
+
+class Tescher(Person):
+    def __init__(self,gh):
+        self.gh = gh
+    def teach(self,course):
+        print( '教',course,'课')
+    def ghh(self):
+        print('gh为',self.gh, '的老师，', end='')
     def eat(self):
-        print('chi')
-    def drink(self):
-        print('he',self.color)
-# 第一步：继承谁，类中的括号就写谁
-# 第二步：子类就具有父类的所有属性和方法，但是父类不能具备子类的属性和方法
-class Gaofei(Animal):
-    def __init__(self,color,size):  #继承父类的属性写法
-        Animal.__init__(self,color)  #继承父类的属性写法，父类属性的初始化写法
-        self.size = size
-#如果父类中没有子类需要的方法，可以在子类中自行定义
-    def bark(self):
-        print('汪汪叫',self.size)
-class Tom(Animal):
-    def catch(self):
-        print('抓老鼠')
-s = Gaofei('color','size')
-s.drink()
-s.bark()
-
-
-
-
-
-
-
-
+        print('吃饭')
+a = Tescher('001')
+a.ghh()
+a.teach('数学')
+a.ghh()
+a.work('北京','3000')
+b = Person()
+b.name('闫洁')
+a.ghh()
+a.eat()
 
 
 
