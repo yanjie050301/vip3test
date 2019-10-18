@@ -51,32 +51,59 @@
 #    餐桌：占1.5平米
 # 3）.将以上三件家具添加到房子中
 # 4）.打印房子时，要求输出:户型，总面积，剩余面积，家具名称列表
-# class Home():
-#     def homes(self,house_type,area,furnture_type):
-#         furnture_type = {'bed': '4.0', 'closet': "2.0", 'table': '1.5'}
-#         print('房子的户型为：',house_type,end='')
-# class  Furnture(Home):
-#     def furnture1(self):
-#         furnture_area = { 'bed' : '4.0', 'closet' : "2.0", 'table' : '1.5'}
-#         a=furnture_area.values
-#
-#
-#             self.area = self.area - float(furnture_area)
-#             print(self.area)
-#             return self.area
-# furnture2 = ['bed', 'closet', 'table']
-# for furnture_area12 in furnture2:
-#     a = Home('四居','80','furnture_area12')
-#     if furnture_area12 == 'bed':
-#         a.Furnture1('4.0')
-#     elif furnture_area12 == 'closet':
-#         a.Furnture1('2.0')
-#     elif furnture_area12 == 'table':
-#         a.Furnture1('1.5')
-# print()
-# furnture_area = {'bed': '4.0', 'closet': "2.0", 'table': '1.5'}
-# a = furnture_area['bed']
-# print(a)
+# 定义家具类
+class  Furnture():
+    # 初始化; name,area:类的属性(家具名称 占地面积)
+    def __init__(self,furnture_name,furnture_area):
+        self.furnture_area = float(furnture_area)
+        self.furnture_name = furnture_name
+    def __str__(self):
+        # str方法:规范化(输出信息)
+        msg1 = "家具名称为:"+self.furnture_name+"    家具面积为："+str(self.furnture_area)
+        return msg1
+# 定义房子类
+class Home():
+    def __init__(self, house_type, zarea,):
+        self.house_type = house_type
+        self.zarea = zarea
+        # sarea: 类的属性(剩余面积)
+        self.sarea = zarea
+        # self.furnture_name: 类的属性(家具名称列表)
+        self.furnture_name= []
+    def __str__(self):
+        msg2 = '房子户型为：' + self.house_type +'   总面积为：' + str(self.zarea)+ '    家具列表：'+ str(self.furnture_name)
+        return msg2
+    # 定义添加家具方法
+    # item:家具类的一个对象
+    def add_furnture(self,item):
+        # append方法:将家具添加到家具列表中
+        self.furnture_name.append(item.furnture_name)
+        # 计算剩余面积
+        self.sarea = self.sarea - item.furnture_area
+        return  '    剩余面积为：' + str(self.sarea)
+# 创建房子对象
+fangzi = Home('两居室',80)
+print(fangzi)
+# 创建家具对象
+bed = Furnture('床',4.0)
+print(bed)
+# 将家具添加到房子中(调用方法)
+a = fangzi.add_furnture(bed)
+print(fangzi,end='')
+print(a)
+
+zhuozi = Furnture('桌子',2.0)
+print(zhuozi)
+a = fangzi.add_furnture(zhuozi)
+print(fangzi,end='')
+print(a)
+
+yigui = Furnture('衣柜','3.5')
+print(yigui)
+a = fangzi.add_furnture(yigui)
+print(fangzi,end='')
+print(a)
+
 # 4.士兵开枪
 # 需求：
 # 1）.士兵瑞恩有一把AK47
